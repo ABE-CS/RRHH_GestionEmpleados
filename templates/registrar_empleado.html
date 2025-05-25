@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Registrar Empleado</title>
+</head>
+<body>
+    <h1>Registrar Nuevo Empleado</h1>
+
+    <form action="/registrar-empleado" method="POST">
+        <p>
+            <label for="nombre">Nombre:</label><br />
+            <input type="text" id="nombre" name="nombre" required />
+        </p>
+
+        <p>
+            <label for="cargo">Cargo:</label><br />
+            <input type="text" id="cargo" name="cargo" required />
+        </p>
+
+        <p>
+            <button type="submit">💾 Guardar</button>
+        </p>
+    </form>
+
+    <p>
+        <a href="/">⬅ Volver al inicio</a>
+    </p>
+</body>
+</html>
+

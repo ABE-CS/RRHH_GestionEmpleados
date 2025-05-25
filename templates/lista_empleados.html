@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Empleados</title>
+</head>
+<body>
+    <h1>Lista de Empleados</h1>
+
+    <p><a href="/registrar-empleado">➕ Registrar nuevo empleado</a></p>
+
+    {% if empleados %}
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Cargo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleado in empleados %}
+            <tr>
+                <td>{{ empleado.id }}</td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.cargo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No hay empleados registrados.</p>
+    {% endif %}
+
+    <p><a href="/">⬅ Volver al inicio</a></p>
+</body>
+</html>
+
+
