@@ -19,16 +19,33 @@
     <h2>Menú de navegación</h2>
     <nav>
         <ul>
-            <li><a href="/listar-empleados">Ver empleados</a></li>
+            <li><a href="/lista-empleados">Ver empleados</a></li>
             <li><a href="/registrar-empleado">Registrar nuevo empleado</a></li>
-            <li><a href="/acerca-de">Acerca del sistema</a></li>
+            <li><a href="#" onclick="mostrarAcerca()">Acerca del sistema</a></li>
         </ul>
     </nav>
+
+    <!-- Contenedor oculto -->
+    <div id="acercaInfo" style="display:none; margin-top: 20px; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9; border-radius: 5px;">
+        <h2>Acerca del Sistema</h2>
+        <p>
+            Este sistema fue creado para optimizar la gestión del personal, mejorar el control de asistencia, vacaciones, evaluaciones y documentos laborales. 
+            Está diseñado para apoyar al departamento de Recursos Humanos en la toma de decisiones y en la eficiencia de sus procesos.
+        </p>
+    </div>
 
     <footer>
         <p>&copy; 2025 Sistema RRHH Hadassah</p>
     </footer>
+
+    <script>
+        function mostrarAcerca() {
+            const info = document.getElementById("acercaInfo");
+            info.style.display = (info.style.display === "none" || info.style.display === "") ? "block" : "none";
+        }
+    </script>
 </body>
 </html>
+
 
 

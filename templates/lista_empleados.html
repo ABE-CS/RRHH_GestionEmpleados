@@ -7,6 +7,16 @@
 <body>
     <h1>Lista de Empleados</h1>
 
+    {% with mensajes = get_flashed_messages() %}
+      {% if mensajes %}
+        <div style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+          {% for mensaje in mensajes %}
+            <p>{{ mensaje }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
     <p><a href="/registrar-empleado">➕ Registrar nuevo empleado</a></p>
 
     {% if empleados %}
@@ -15,15 +25,32 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Documento</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Fecha de Ingreso</th>
                 <th>Cargo</th>
+                <th>Salario</th>
             </tr>
         </thead>
         <tbody>
             {% for empleado in empleados %}
             <tr>
                 <td>{{ empleado.id }}</td>
-                <td>{{ empleado.nombre }}</td>
+                 <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.documento }}</td>
+                <td>{{ empleado.email }}</td>
+                <td>{{ empleado.telefono }}</td>
+                <td>{{ empleado.direccion }}</td>
+                <td>{{ empleado.fecha_ingreso }}</td>
                 <td>{{ empleado.cargo }}</td>
+                <td>{{ empleado.salario }}</td>
+                <td>
+                    <a href="/editar-empleado/{{ empleado.id }}">✏️ Editar</a>
+                    |
+                    <a href="/eliminar-empleado/{{ empleado.id }}" onclick="return confirm('¿Estás seguro de eliminar este empleado?');">🗑 Eliminar</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
