@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Editar Empleado</title>
+</head>
+<body>
+    <h1>Editar Empleado</h1>
+
+    <form action="/editar-empleado/{{ empleado.id }}" method="POST">
+        <p>
+            <label for="nombre">Nombre:</label><br />
+            <input type="text" id="nombre" name="nombre" value="{{ empleado.nombre }}" required />
+        </p>
+
+        <p>
+            <label for="documento">Documento:</label><br />
+            <input type="text" id="documento" name="documento" value="{{ empleado.documento or '' }}" />
+        </p>
+
+        <p>
+            <label for="email">Email:</label><br />
+            <input type="email" id="email" name="email" value="{{ empleado.email or '' }}" />
+        </p>
+
+        <p>
+            <label for="telefono">Teléfono:</label><br />
+            <input type="text" id="telefono" name="telefono" value="{{ empleado.telefono or '' }}" />
+        </p>
+
+        <p>
+            <label for="direccion">Dirección:</label><br />
+            <input type="text" id="direccion" name="direccion" value="{{ empleado.direccion or '' }}" />
+        </p>
+
+        <p>
+            <label for="fecha_ingreso">Fecha de Ingreso:</label><br />
+            <input type="date" id="fecha_ingreso" name="fecha_ingreso" value="{{ empleado.fecha_ingreso }}" />
+        </p>
+
+        <p>
+            <label for="cargo">Cargo:</label><br />
+            <input type="text" id="cargo" name="cargo" value="{{ empleado.cargo }}" required />
+        </p>
+
+        <p>
+            <label for="salario">Salario:</label><br />
+            <input type="number" step="0.01" id="salario" name="salario" value="{{ empleado.salario or 0 }}" />
+        </p>
+
+        <p>
+            <button type="submit">💾 Actualizar</button>
+            <a href="/lista-empleados" style="margin-left: 10px;">📋 Ver empleados</a>
+        </p>
+    </form>
+
+    <p>
+        <a href="/">⬅ Volver al inicio</a>
+    </p>
+</body>
+</html>
